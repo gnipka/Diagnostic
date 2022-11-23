@@ -1,0 +1,92 @@
+﻿@model LocalizationListViewModel
+
+<div class="row justify-content-center">
+    <div class="col-3">
+        <!-- Tab navs -->
+        <div class="tabs nav flex-column nav-tabs text-center"
+             id="v-tabs-tab"
+             role="tablist"
+             aria-orientation="vertical">
+            @{
+                foreach (var localization in Model.AllLocalizations)
+                {
+                    <a class="tab nav-link active"
+                   id="@localization.LocalizationId"
+                   data-mdb-toggle="tab"
+                   href="#"
+                   role="tab"
+                   aria-controls="@localization.LocalizationId"
+                   aria-selected="true">@localization.Name</a>
+                }
+            }
+        </div>
+        <!-- Tab navs -->
+    </div>
+
+    <div class="col-9">
+
+        <div>
+            <!-- Tab content -->
+            <div class="list-group mx-0 w-auto">
+                @{
+                    foreach (var symptom in Model.AllSymptoms)
+                    {
+                        <div class = "tab-content tab-pane fade active"  id="@symptom.LocalizationId" role="tabpanel" aria-labelledby="@symptom.LocalizationId-tab">
+                            <label class="list-group-item d-flex gap-2">
+                                <input class="form-check-input flex-shrink-0" type="checkbox">
+                                <span>
+                                    @symptom.Name
+                                </span>
+                            </label>
+                        </div>
+                        //<div class="tab-pane tab-content fade active"
+                        // id="@symptom.LocalizationId"
+                        // role="tabpanel"
+                        // aria-labelledby="@symptom.LocalizationId-tab">
+                        //    @symptom.Name
+                        //</div>
+                    }
+                }
+            </div>
+        </div>
+        <!-- Tab content -->
+    </div>
+</div>
+
+
+@*<div class="row mt-5">
+    <div class="mb-10">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    </div>
+    <div class="d-flex gap-5 justify-content-center container top-10">
+
+    <div class="list-group list-group-radio d-grid gap-2 border-0 w-auto">
+    @{
+    foreach (var localization in Model.AllLocalizations)
+    {
+    <div class="position-relative">
+    <input class="form-check-input position-absolute top-10 end-0 me-3 fs-5" type="radio" name="listGroupRadioGrid" id="listGroupRadioGrid1" value="" checked="">
+    <label class="btn btn-secondary" for="listGroupRadioGrid1">
+    <strong class="fw-semibold">@localization.Name</strong>
+    </label>
+    </div>
+    }
+    }
+    </div>
+
+    <div class="list-group mx-0 w-auto">
+    @{
+    foreach (var symptom in Model.AllSymptoms)
+    {
+    <label class="list-group-item d-flex gap-2">
+    <input class="form-check-input flex-shrink-0" type="checkbox" value="" checked>
+    <span>
+    @symptom.Name
+    </span>
+    </label>
+    }
+    }
+    </div>
+    </div>
+    </div>*@
+

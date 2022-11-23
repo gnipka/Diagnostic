@@ -1,0 +1,57 @@
+﻿@model LocalizationListViewModel
+
+<div>
+    <div class="mb-10">
+        <input id="inputSearch" class="form-control me-2" type="search" placeholder="Поиск по симптомам" aria-label="Search">
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-3 mt-2">
+            <!-- Tab navs -->
+            <div class="tabs nav flex-column nav-tabs text-center" style="max-height: 415px"
+                 id="v-tabs-tab"
+                 role="tablist"
+                 aria-orientation="vertical">
+                @{
+                    foreach (var localization in Model.AllLocalizations)
+                    {
+                        <a class="tab nav-link active"
+                       id="@localization.LocalizationId"
+                       data-mdb-toggle="tab"
+                       href="#"
+                       role="tab"
+                       aria-controls="@localization.LocalizationId"
+                       aria-selected="true">@localization.Name</a>
+                    }
+                }
+            </div>
+            <!-- Tab navs -->
+        </div>
+
+        <div class="col-9">
+
+            <div>
+                <!-- Tab content -->
+                <div class="list-group mt-2 w-auto overflow-auto" style="max-height: 415px">
+                    @{
+                        foreach (var symptom in Model.AllSymptoms)
+                        {
+                            <div class="tab-content tab-pane fade active" id="@symptom.LocalizationId" role="tabpanel" aria-labelledby="@symptom.LocalizationId-tab">
+                                <label class=" list-group-item d-flex gap-2">
+                                    <input id="@symptom.SymptomId" class="symptom form-check-input flex-shrink-0" type="checkbox">
+                                    <span>
+                                        @symptom.Name
+                                    </span>
+                                </label>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+            <!-- Tab content -->
+        </div>
+
+        <button asp id="btn-Symptom" class="btn btn-secondary border mt-4 mb-4">Продолжить</button>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="~/js/script.js"></script>
+</div>

@@ -1,0 +1,40 @@
+﻿<div class="d-flex justify-content-center align-items-baseline">
+    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250" style="max-width: 800px; min-width: 800px">
+        <div class="col p-4 d-flex flex-column">
+            <h3 class="mb-2">Карта пользователя</h3>
+            <div class="mb-1 text-muted">@DateTime.Now.ToLongDateString()</div>
+
+            <div class="mt-2">
+                <span class="col-1 card-text mb-2 fw-bold">Имя</span>
+                <span class="col-2 card-text" id="name"></span>
+            </div>
+
+            <div class="mt-2">
+                <span class="col-1 card-text mb-2 fw-bold">Возраст</span>
+                <span class="col-4 card-text mb-2" id="age"></span>
+            </div>
+
+            <div class="mt-2">
+                <span class="col-1 card-text mb-2 fw-bold">Пол</span>
+                <span class="col-2 card-text mb-2" id="gender"></span>
+            </div>
+            <hr>
+            <div class="mt-2" id="symptoms">
+                <span class="col-1 card-text mb-2 fw-bold">Симптомы</span>
+                @*<span class="col-2 card-text mb-2" id="symptomdisease"></span>*@
+            </div>
+
+            <div class="mt-2">
+                <span class="col-1 card-text mb-2 fw-bold" style="font-size: 25px">Диагноз</span>
+                <span class="col-2 card-text mb-2" id="disease"></span>
+            </div>
+
+
+        </div>
+        <div class="col-auto d-none d-lg-block">
+            <img class="bd-placeholder-img" width="200" height="250" id="image" focusable="false" />
+        </div>
+        <button style="visibility: hidden" id="btn-Symptom"></button>
+    </div>
+    <script src="~/js/script.js"></script>
+</div>
